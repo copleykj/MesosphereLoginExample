@@ -1,0 +1,34 @@
+<head>
+	<title>Mesosphere Login Example</title>
+</head>
+<body>
+	{{#if currentUser}}
+		{{>logged_in}}
+	{{else}}
+		{{>login_signup}}
+	{{/if}}
+</body>
+
+<template name="login_inputs">
+	<p><input type="email" name="email" placeholder="email address"></p>
+	<p><input type="password" name="password" placeholder="password"></p>
+</template>
+
+<template name="login_signup">
+	<div id="wrapper">
+		<form name="login_form" id="login_form">
+			{{>login_inputs}}
+			<p><input type="submit" value="Log In"></p>
+		</form>
+		<hr>
+		<form name="signup_form" id="signup_form">
+			<p><input type="text" name="username" placeholder="username"></p>
+			{{>login_inputs}}
+			<p><input type="submit" value="Sign Up"></p>
+		</form>
+	</div>
+</template>
+
+<template name="logged_in">
+	<h1>You are now logged in!</h1>
+</template>
